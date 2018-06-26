@@ -10,3 +10,17 @@ function indexofM(array,col,match){
     }
     else { return -1; }
 }
+function writedata(server,nome,data){
+	////////// SEND DADOS TO SERVER
+    /// Requires save.php to be present
+    saveremote = new XMLHttpRequest();
+    saveremote.open("POST", server+'save.php', true);
+    saveremote.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    saveremote.send('save='+nome+'&dados='+JSON.stringify(data));
+    console.log('sent: '+JSON.stringify(data));
+    console.log('going for the save');
+    saveremote.onload = function(){ 
+    	remotedebug=saveremote.responseText;
+    	console.log('save feedback:\n '+remotedebug);
+    }
+}
