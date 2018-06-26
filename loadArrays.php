@@ -1,4 +1,13 @@
 <?php
+/*
+Basically this serves to load files into JS arrays.
+Files are JSON arrays created with JSON.stringyfy() from JS and loaded with JSON.parse().
+
+This function loads the matching ($match) files from a specific $dir
+and puts them in an array with the given $arr_name in JS.
+Each file is put in one of the array's indexes.
+A list of the filtered file names is put in a matching array $ilist in JS.
+*/
 	function arrays_from_files($dir,$match,$quant,$arr_name,$ilist){
         $arqs = [];
 		if ($dir_list = opendir($dir)){
